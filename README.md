@@ -1,4 +1,4 @@
-# Desu.ai Tag Formatter
+# Danbooru Tag Formatter
 Automatically format tags for use with Stable Diffusion models.
 
 This is a Python script that formats tags from various inputs for use with Stable Diffusion models. The script can accept either a danbooru post URL, a file containing tags, or unformatted tags themselves.
