@@ -7,7 +7,7 @@ If given a URL, the script uses the pybooru library to extract the tags associat
 
 If given a file, the script reads through each line of the file and formats the tags in the same way as for URLs. If the file contains additional URLs or file paths, the script will also recursively process them.
 
-Usage: tag_formatter.py <input>
+Usage: `tag_formatter.py <input>`
 
 ## Examples
 
