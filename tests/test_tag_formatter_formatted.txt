@@ -1,0 +1,208 @@
+import, pytest
+
+import, os
+
+import, sys
+
+import, logging
+
+from, pathlib, import, Path
+
+
+
+from, tag formatter, import, detection,, file format,, main
+
+
+
+def, test detection url():
+
+, , , , url, =, "https://danbooru.donmai.us/posts/123456"
+
+, , , , assert, detection(url), ==, "URL"
+
+
+
+def, test detection file():
+
+, , , , assert, detection(file), ==, "File"
+
+
+
+def, test detection dir(mock isdir):
+
+, , , , test dir, =, "test dir"
+
+, , , , result, =, detection(test dir)
+
+, , , , assert, result, ==, "Dir"
+
+
+
+def, test detection tags():
+
+, , , , tags, =, "1girl, blue hair"
+
+, , , , assert, detection(tags), ==, "Tags"
+
+
+
+def, test file format with url(mock client,, tmp path):
+
+
+
+, , , , mock post, =, {'tag string':, 'tag1, tag2 tag3'}
+
+
+
+
+
+, , , , file format()
+
+
+
+
+
+def, test file format with tags(tmp path):
+
+
+
+
+
+, , , , file format()
+
+
+
+
+
+def, test main with url(mock client):
+
+, , , , mock post, =, {'tag string':, 'tag1, tag2 tag3'}
+
+
+
+
+
+, , , , main()
+
+
+
+def, test main with tags():
+
+, , , , main()
+
+
+
+def, test main with file(tmp path):
+
+
+
+
+
+, , , , main()
+
+
+
+def, test main no args():
+
+, , , , , , , , main()
+
+
+
+def, test file format nested file(tmp path):
+
+
+
+
+
+
+
+, , , , file format()
+
+
+
+
+
+def, test file format file not found():
+
+, , , , , , , , file format()
+
+
+
+def, test file format invalid url(tmp path):
+
+
+
+
+
+, , , , file format()
+
+
+
+
+
+def, setup logging():
+
+
+
+def, test detection windows path():
+
+, , , , path, =, "C:\\Users\\test\\file.txt"
+
+, , , , assert, detection(path), ==, "File"
+
+
+
+def, test detection unix path():
+
+, , , , assert, detection(path), ==, "File"
+
+
+
+def, test detection relative path():
+
+, , , , assert, detection(path), ==, "File"
+
+
+
+def, test detection empty string():
+
+, , , , assert, detection(""), ==, "Tags"
+
+
+
+def, test detection special chars():
+
+, , , , assert, detection("tag1!@#$%^&*()tag2"), ==, "Tags"
+
+
+
+def, test file format multiple urls(mock client,, tmp path):
+
+
+
+, , , , , , , , {'tag string':, 'tag1, tag2'},
+
+, , , , , , , , {'tag string':, 'tag3, tag4'}
+
+, , , , ]
+
+
+
+, , , , file format()
+
+
+
+
+
+def, test file format mixed content(tmp path):
+
+
+
+, , , , file format()
+
+
+
+, , , , expected, =, "1girl,, blue, hair\ntag1, tag2"
+
+, , , , assert, actual, ==, expected
+
