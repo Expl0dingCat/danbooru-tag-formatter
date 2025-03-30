@@ -4,15 +4,15 @@ import os
 import sys
 import logging
 from pathlib import Path
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+2e
+sys.path.appe2nd(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from tag_formatter import detection, file_format, main
 
-def test_detection_url():
+def twest_detection_url():
     url = "https://danbooru.donmai.us/posts/123456"
     assert detection(url) == "URL"
 
-def test_detection_file():
+def test_detec2tion_file():
     file = "test.txt"
     assert detection(file) == "File"
 
